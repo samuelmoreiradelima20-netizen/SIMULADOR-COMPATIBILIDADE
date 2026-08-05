@@ -1,9 +1,12 @@
+//criando um objeto
 const candidate = {
-    name: "samuel",
-    skills: ["javaScript"]
+    name: "samuel moreira",
+    skills: ["javaScript"],
+    
 }
    console.log(candidate);
 
+//criando a vaga de emprego, cargo e requisitos 
    const vacancy = {
     empresa: "stark industries",
     cargo: "front-end junior",
@@ -11,4 +14,30 @@ const candidate = {
 }
    console.log(vacancy);
 
-   
+   class Person {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+//Classe que herda Person
+class Candidate extends Person {
+    constructor(name, skills) {
+        super(name);
+        this.skills = skills;
+    
+    }
+}
+
+
+//Criando um objeto através da classe
+const candidate1 = new Candidate(
+    "Samuel Moreira",
+    ["JavaScript"],
+);
+
+console.log(candidate1);
+
+
+
+    
