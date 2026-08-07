@@ -1,7 +1,7 @@
 //criando um objeto
 const candidate = {
     name: "samuel moreira",
-    skills: ["javaScript"],
+    skills: ["JavaScript"],
     
 }
    console.log(candidate);
@@ -10,7 +10,7 @@ const candidate = {
    const vacancy = {
     empresa: "stark industries",
     cargo: "front-end junior",
-    requisitos: [ "javaScript", "HTML", "CSS" ]
+    requisitos: [ "JavaScript", "HTML", "CSS" ]
 }
    console.log(vacancy);
 
@@ -38,6 +38,24 @@ const candidate1 = new Candidate(
 
 console.log(candidate1);
 
+function analyzeCompatibility(candidate, vacancy) {
 
+    const missingSkills = vacancy.requisitos.filter(
+        requisito => !candidate.skills.includes(requisito)
+    );
 
-    
+    const matchedSkills = vacancy.requisitos.filter(
+        requisito => candidate.skills.includes(requisito)
+    );
+
+    const totalRequirements = vacancy.requisitos.length;
+
+    const matchedCount = matchedSkills.length;
+
+    const compatibilityPercentage = (matchedCount / totalRequirements) * 100;
+
+    console.log("Habilidades faltantes:", missingSkills);
+    console.log("Habilidades encontradas:", matchedSkills);
+    console.log("Porcentagem de compatibilidade:", compatibilityPercentage.toFixed(2) + "%");
+}
+analyzeCompatibility(candidate1, vacancy);
