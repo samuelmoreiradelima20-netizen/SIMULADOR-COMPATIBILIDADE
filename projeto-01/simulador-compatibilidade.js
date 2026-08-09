@@ -59,7 +59,6 @@ function analyzeCompatibility(candidate, vacancy) {
     };
     
 }
-analyzeCompatibility(candidate1, vacancy);
 
 const vacancies = [
     {
@@ -84,6 +83,11 @@ const results = vacancies.map(vacancy => {
     };
 });
 console.log("resultados", results);
+results.forEach(result => {
+    console.log(
+        `${result.empresa}: ${result.compatibilityPercentage.toFixed(2)}% de compatibilidade`
+    );
+});
 
 const bestVacancy = results.reduce((best, current) => {
     return current.compatibilityPercentage > best.compatibilityPercentage ? current : best;
