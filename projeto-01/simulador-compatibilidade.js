@@ -4,16 +4,14 @@ const candidate = {
     skills: ["JavaScript"],
     
 }
-   console.log(candidate);
-
+  
 //criando a vaga de emprego, cargo e requisitos 
    const vacancy = {
     empresa: "stark industries",
     cargo: "front-end junior",
     requisitos: [ "JavaScript", "HTML", "CSS" ]
 }
-   console.log(vacancy);
-
+  
    class Person {
     constructor(name) {
         this.name = name;
@@ -54,9 +52,6 @@ function analyzeCompatibility(candidate, vacancy) {
 
     const compatibilityPercentage = (matchedCount / totalRequirements) * 100;
 
-    console.log("Habilidades faltantes:", missingSkills);
-    console.log("Habilidades encontradas:", matchedSkills);
-    console.log("Porcentagem de compatibilidade:", compatibilityPercentage.toFixed(2) + "%");
      return {
         matchedSkills: matchedSkills,
         missingSkills: missingSkills,
@@ -80,12 +75,6 @@ const vacancies = [
     },
 ];
 
-console.log("vacancies", vacancies);
-
-//for (let i = 0; i < vacancies.length; i++) {
-//    console.log("Empresa:", vacancies[i].empresa);
-//    analyzeCompatibility(candidate1, vacancies[i]);
-//}
 
 const results = vacancies.map(vacancy => {
     const result = analyzeCompatibility(candidate1, vacancy);
@@ -109,8 +98,9 @@ console.log("Vaga na Wayne Enterprises:", wayneVacancy);
 const hasAllSkills = vacancies[1].requisitos.every(
     requisito => candidate1.skills.includes(requisito)
 );
-console.log("O candidato possui todas as habilidades para a vaga da Wayne Enterprises?", hasAllSkills);
- 
+console.log("O candidato possui todas as habilidades para a vaga da Wayne Enterprises?",
+     hasAllSkills ? "sim" : "não");
+
 function loadVacancies() {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
@@ -123,10 +113,12 @@ async function starkSkillMatch() {
     console.log("Carregando vagas...");
     const loadedVacancies =  await loadVacancies();
     processVacancies(loadedVacancies, (vacancies) => {
-        console.log("Vagas carregadas com sucesso:", loadedVacancies);
+        const analysisNumber = analysisCounter();
+        console.log(`Análise de compatibilidade número: ${analysisNumber}`);
+       console.log("Vagas carregadas com sucesso:", vacancies);
     });
 }
-
+const analysisCounter = createAnalysisCounter();
 function processVacancies(vacancies, callback) {
     callback(vacancies);
 }
@@ -140,7 +132,3 @@ function createAnalysisCounter() {
     }
 }
 
-const analysisCounter = createAnalysisCounter();
-console.log(analysisCounter());
-console.log(analysisCounter());
-console.log(analysisCounter());
