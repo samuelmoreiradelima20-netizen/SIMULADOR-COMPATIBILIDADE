@@ -110,3 +110,19 @@ const hasAllSkills = vacancies[1].requisitos.every(
     requisito => candidate1.skills.includes(requisito)
 );
 console.log("O candidato possui todas as habilidades para a vaga da Wayne Enterprises?", hasAllSkills);
+ 
+function loadVacancies() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(vacancies);
+                }, 2000);
+            });
+        }
+
+async function starkSkillMatch() {
+    console.log("Carregando vagas...");
+    const loadedVacancies =  await loadVacancies();
+    console.log("Vagas carregadas com sucesso:", loadedVacancies);
+}
+starkSkillMatch();  
+
