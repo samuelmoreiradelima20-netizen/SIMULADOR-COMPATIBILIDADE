@@ -131,3 +131,16 @@ function processVacancies(vacancies, callback) {
     callback(vacancies);
 }
 starkSkillMatch(); 
+
+function createAnalysisCounter() {
+    let count = 0;
+    return function() {
+        count++;
+        return count; 
+    }
+}
+
+const analysisCounter = createAnalysisCounter();
+console.log(analysisCounter());
+console.log(analysisCounter());
+console.log(analysisCounter());
