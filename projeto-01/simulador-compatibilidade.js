@@ -122,7 +122,12 @@ function loadVacancies() {
 async function starkSkillMatch() {
     console.log("Carregando vagas...");
     const loadedVacancies =  await loadVacancies();
-    console.log("Vagas carregadas com sucesso:", loadedVacancies);
+    processVacancies(loadedVacancies, (vacancies) => {
+        console.log("Vagas carregadas com sucesso:", loadedVacancies);
+    });
 }
-starkSkillMatch();  
 
+function processVacancies(vacancies, callback) {
+    callback(vacancies);
+}
+starkSkillMatch(); 
